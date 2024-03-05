@@ -25,6 +25,4 @@ dist-ssr
 
 .env.local
 node_modules
-
-
 .env

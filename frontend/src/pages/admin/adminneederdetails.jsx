@@ -35,121 +35,121 @@ function AdminNeeder ()  {
      console.log(needer);
     return(
   
-    <div className="mt-20 mb-20">
-  <div className="grid grid-cols-2 gap-4 items-center ">
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Name -</p>
+    <div className="mt-20 mb-20 flex justify-center">
+  <div className="grid grid-cols-2 gap-x-4  w-2/4 ">
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Name -</p>
     
       <p key={needer._id} className="whitespace-nowrap">{needer.name}</p>
     
   </div>
   
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Date of Birth -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Date of Birth -</p>
     
       <p key={needer._id} className="whitespace-nowrap">{needer.dateOfBirth}</p>
    
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Age -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Age -</p>
     
       <p key={needer._id} className="whitespace-nowrap">{needer.age}</p>
    
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Address -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Address -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.address} </p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Phone -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Phone -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.phone} -</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Emergency Phone -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Emergency Phone -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.emergencyPhone} -</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Health Condition -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Health Condition -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.healthCondition}</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Behavioural Consideration -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Behavioural Consideration -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.behaviour}</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Reservation start date -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Reservation start date -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.startDate}</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Reservation end date -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Reservation end date -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.endDate}</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Amount for service -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Amount for service -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.price}</p>
     
   </div>
 
-  <div className="col-span-1">
-    <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Period of service -</p>
+  <div className="col-span-1 py-2">
+    <p className="text-xs font-medium text--500 uppercase tracking-wider">Period of service -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.period}</p>
     
   </div>
 
-  <div className="col-span-1">
+  <div className="col-span-1 py-2">
     <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Role -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.role}</p>
    
   </div>
 
-  <div className="col-span-1">
+  <div className="col-span-1 py-2">
     <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Gender -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.gender}</p>
     
   </div>
 
-  <div className="col-span-1">
+  <div className="col-span-1 py-2">
     <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Gender Requirement -</p>
    
       <p key={needer._id} className="whitespace-nowrap">{needer.genderRequirement}</p>
    
   </div>
 
-  <div className="cols-2">
-  <div className="cols-1">
+ 
+  <div className="cols-1 py-2">
     <p className="text-xs font-medium text-gray-500 uppercase ">Status -</p>
     <div className="cols-">
       <p key={needer._id} className="whitespace-nowrap">{needer.isApproved}</p>
     </div>
   </div>
-</div>
+
 
 </div>
 <br />

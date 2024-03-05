@@ -43,7 +43,7 @@ function Services ()  {
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Need- </b>  {service.need}</p>
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Type- </b>  {service.type}</p>
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b> Benifit-</b>{service.benifit}</p>
-        <h4 className='text-[22px] leading-9 font-[700] text-primaryColor '>Amount</h4>
+        <h4 className='text-[22px] leading-9 font-[700] text-primaryColor '>Charges Amount</h4>
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Service per day- </b>  {service.servicePerDay}</p>
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Tax- </b>  {service.tax}</p>
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Security- </b>  {service.security}</p>
