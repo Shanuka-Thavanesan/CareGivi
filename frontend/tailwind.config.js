@@ -14,7 +14,8 @@ export default {
         white:"#ddd",
         yellowGreen:"#97A97C",
         peach:"#EDE0D4",
-        yellowColor:"#F2AF13"
+        yellowColor:"#F2AF13",
+        red:"#D2122E"
     },
     boxShadow: {
       panelShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;",

@@ -38,7 +38,7 @@ const AdminNavLinks =[
         display:"Careneeders"
     },
     {
-        path:'/Services',
+        path:'/adminservicedetails',
         display:"Services"
     },
     {

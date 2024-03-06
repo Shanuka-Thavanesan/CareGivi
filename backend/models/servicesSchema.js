@@ -6,7 +6,7 @@ const ServiceSchema = new mongoose.Schema({
     need: { type: String },
     type: { type: String },
     benifit: { type: String },
-    servicePerDay:{type:Number},
+    servicePerDay:{type:String},
     tax:{type:String},
     security:{type:String}
     // timestamps: true,

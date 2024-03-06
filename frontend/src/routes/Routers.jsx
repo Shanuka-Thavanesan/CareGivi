@@ -17,8 +17,10 @@ import FindCaretaker from '../pages/FindCaretaker';
 import ProtectedRoute from './ProtectedRoute';
 
 import Users from '../pages/admin/adminuser';
-import Taker from '../pages/admin/adminCaretaker'
+import Taker from '../pages/admin/adminCaretaker';
 import AdminTaker from "../pages/admin/admintakerdetails"
+import AdminService from "../pages/admin/adminSevice";
+import AdminServiceDetails from "../pages/admin/adminServiceDetails";
 import Invoice from "../pages/invoice/invoiceApp"
 
 const Routers = () => {
@@ -33,16 +35,18 @@ const Routers = () => {
         < Route path="/Services" element={<Services />} />
         < Route path="/career" element={<Career />} />
         < Route path="/findcaretaker" element={<FindCaretaker />} />
-        
+
         < Route path="/users/profile/me" element={<ProtectedRoute allowedRoles={["careneeder"]}><MyAccount />  </ProtectedRoute>} />
-        < Route path="/caretakers/profile/me"  element={ <ProtectedRoute allowedRoles={['caretaker']}><Dashboard/> </ProtectedRoute> } />
-        
-        < Route path="/Users" element={<Users/>} />
-        < Route path="/Taker" element={<Taker/>} />
-        <Route path={`/AdminNeeder/:id`} element={<AdminNeeder/>} />
-        <Route path={`/Admintaker/:id`} element={<AdminTaker/>} />
-        < Route path="/CheckoutSuccess" element={<CheckoutSuccess/>} />
-        < Route path="/invoice" element={<Invoice/>} />
+        < Route path="/caretakers/profile/me" element={<ProtectedRoute allowedRoles={['caretaker']}><Dashboard /> </ProtectedRoute>} />
+
+        < Route path="/Users" element={<Users />} />
+        < Route path="/Taker" element={<Taker />} />
+        <Route path={`/AdminNeeder/:id`} element={<AdminNeeder />} />
+        <Route path={`/Admintaker/:id`} element={<AdminTaker />} />
+        < Route path="/adminservice" element={<AdminService />} />
+        < Route path="/adminservicedetails" element={<AdminServiceDetails />} />
+        < Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
+        < Route path="/invoice" element={<Invoice />} />
     </Routes>
 };
 

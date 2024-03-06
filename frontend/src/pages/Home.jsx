@@ -34,7 +34,7 @@ const Home = () => {
                                 your doctor and case manager to provide the personalized circle of care that meets your needs.
                             </p>
                             <br />
-                            <Link to='/findcaretaker'><button className='btn hover:bg-peach hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl'>Need of Caretaker</button></Link>
+                            <Link to='/Services'><button className='btn hover:bg-yellowGreen hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl'>Services of CareGivi</button></Link>
                         </div>
 
                         {/* ================ hero content =============== */}
