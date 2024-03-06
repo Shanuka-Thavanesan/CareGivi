@@ -16,6 +16,6 @@ const router=express.Router();
 router.post('/createtaker',authenticate,createTaker);
 router.get('/getalltakers',authenticate,getAllTaker);
 router.get('/get/:id',authenticate,getSingleTaker);
-router.put('/updatetaker',authenticate,updateTaker);
+router.put('/updatetaker/:id',authenticate,updateTaker);
 router.delete('/detetaker',authenticate,deleteTaker);
 export default router;

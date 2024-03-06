@@ -39,19 +39,44 @@ const createTaker = asyncHandler(async (req, res) => {
   
 });
 
-export const updateTaker= async(req,res)=>{
-  const id= req.params.id
+// export const updateTaker= async(req,res)=>{
+//   const id= req.params.id
+
+//   try {
+
+//       const updatedTaker= await Caretaker.findByIdAndUpdate(id,{$set:req.body},{new:true});
+
+//       res.status(200).json({success:true,message:"Successfully Updated", data:updatedTaker});
+      
+//   } catch (err) {
+//       res.status(500).json({success:false,message:"Failed to Update"});
+//   }
+// };
+
+
+export const updateTaker = async (req, res) => {
+  const id = req.params.id;
 
   try {
+    // Find and update the Taker document by ID
+    const updatedTaker = await Taker.findByIdAndUpdate(id, req.body, {
+      new: true, // Return the updated document
+    });
 
-      const updatedTaker= await Caretaker.findByIdAndUpdate(id,{$set:req.body},{new:true});
-
-      res.status(200).json({success:true,message:"Successfully Updated", data:updatedTaker});
-      
+    if (updatedTaker) {
+      // If update was successful, respond with the updated document
+      res.status(200).json({ success: true, message: 'Successfully updated', data: updatedTaker });
+    } else {
+      // If no Taker document found for the ID, respond with 404
+      res.status(404).json({ success: false, message: 'Taker not found' });
+    }
   } catch (err) {
-      res.status(500).json({success:false,message:"Failed to Update"});
+    // Handle errors and respond with an error message
+    console.error('Error updating Taker:', err);
+    res.status(500).json({ success: false, message: 'Failed to update Taker' });
   }
 };
+
 
 export const deleteTaker= async(req,res)=>{
   const id= req.params.id

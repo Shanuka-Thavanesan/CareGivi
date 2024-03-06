@@ -19,6 +19,7 @@ const neederSchema = new mongoose.Schema({
   healthCondition:{type:String},
   serviceNeed: { type: String },
   behaviour: { type: String },
+
   totalDays:{type:String},
  
   role: {
@@ -30,6 +31,10 @@ const neederSchema = new mongoose.Schema({
   genderRequirement: { type: String, enum: ["male", "female", "other"] },
   startDate:{type:Date},
   endDate:{type:Date},
+  servicePerDay:{type:Number},
+  tax:{type:Number},
+  securityFee:{type:Number},
+  externalService:{type:Number},
   price:{type:String},
   // appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
   isApproved: {

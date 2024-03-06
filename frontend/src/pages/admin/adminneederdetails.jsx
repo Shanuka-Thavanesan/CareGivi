@@ -1,10 +1,19 @@
 import React,{useState,useEffect,Fragment, useContext} from "react";
 import { authContext } from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+
+
 function AdminNeeder ()  {
     const [needer, setneeder] = useState([]);
     const {token}=useContext(authContext);
-    const {id}=useParams()
+    const {id}=useParams();
+    const [status, setstatus] = useState('');
+    const [servicePerDay, setservicePerDay] = useState('');
+    const [tax, settax] = useState('');
+    const [securityFee, setsecurityFee] = useState('');
+    const [externalService, setexternalService] = useState('');
+    const [price, setPrice] = useState('');
     // console.log(token);
     useEffect(() => {
         loadUser(id);
@@ -33,6 +42,47 @@ function AdminNeeder ()  {
       }
       
      console.log(needer);
+     const handlestatusChange = (e) => {
+      setstatus(e.target.value);
+    };
+    const handleservicePerDayChange = (e) => {
+      setservicePerDay(e.target.value);
+    }
+    const handletaxChange = (e) => {
+      settax(e.target.value);
+    }
+    const handlesecurityFeeChange = (e) => {
+      setsecurityFee(e.target.value);
+    }
+    const handleexternalServiceChange = (e) => {
+      setexternalService(e.target.value);
+    }
+    const handlepriceChange = (e) => {
+      setPrice(e.target.value);
+    }
+
+    const submitHandler = async (e) => {
+      e.preventDefault()
+     
+  
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/v1/needer/updateneeder/${id}`,
+          { status, price },
+          { headers: { Authorization: 'Bearer ' + token } }
+        );
+        
+        if (response.status === 200) {
+          console.log('Upload successful!');
+          // You may perform additional actions here upon successful update
+        } else {
+          console.log('Upload failed. Response:', response);
+          // You may handle the failure case accordingly
+        }
+      } catch (error) {
+        console.error('Error uploading:', error);
+      }
+    }    
     return(
   
     <div className="mt-20 mb-20 flex justify-center">
@@ -99,7 +149,7 @@ function AdminNeeder ()  {
       <p key={needer._id} className="whitespace-nowrap">{needer.startDate}</p>
     
   </div>
-
+ 
   <div className="col-span-1 py-2">
     <p className="text-xs font-medium text--500 uppercase tracking-wider">Reservation end date -</p>
    
@@ -145,24 +195,109 @@ function AdminNeeder ()  {
  
   <div className="cols-1 py-2">
     <p className="text-xs font-medium text-gray-500 uppercase ">Status -</p>
-    <div className="cols-">
+   
       <p key={needer._id} className="whitespace-nowrap">{needer.isApproved}</p>
-    </div>
+    
   </div>
 
 
 </div>
 <br />
 
-<div class="flex justify-center">
-  <div>
-<button className="btn ">Approve</button>
-</div>
-<div>
-<button className="btn">Cancel</button>
-</div>
-</div>
 
+{/* ===============================Admin Controller============================== */}
+<form onSubmit={(e) => submitHandler(e)}>
+      <h2 className="text-2xl font-bold mb-6 text-primaryColor">Admin Controller</h2>
+      <div className="mb-8">
+        <div className="grid grid-cols-2 gap-4">
+          <label htmlFor="status" className="text-sm font-medium text-primaryColor">
+            Status:
+          </label>
+          <select
+            id="status"
+            value={status}
+            onChange={(e) => handlestatusChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-beigeColor-500 focus:border-beigeColor-500"
+          >
+            <option value="pending">Pending...</option>
+            <option value="approved">Approved</option>
+            <option value="cancel">camcel</option>
+            
+          </select>
+        </div>
+        <div className="grid grid-cols-1">
+          <label htmlFor="servicePerDay" className="text-sm font-medium text-primaryColor">
+            Service Amount
+          </label>
+          <input
+            type="number"
+            id="servicePerDay"
+            value={servicePerDay}
+            onChange={(e) => handleservicePerDayChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
+        </div>
+        
+        <div className="grid grid-cols-1">
+          <label htmlFor="tax" className="text-sm font-medium text-primaryColor">
+            Tax Amount
+          </label>
+          <input
+            type="number"
+            id="tax"
+            value={tax}
+            onChange={(e) => handletaxChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
+        </div>
+        <div className="grid grid-cols-1">
+          <label htmlFor="securityFee" className="text-sm font-medium text-primaryColor">
+            Security Charge
+          </label>
+          <input
+            type="number"
+            id="securityFee"
+            value={securityFee}
+            onChange={(e) => handlesecurityFeeChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
+        </div>
+        <div className="grid grid-cols-1">
+          <label htmlFor="externalService" className="text-sm font-medium text-primaryColor">
+            Extra Service Charge
+          </label>
+          <input
+            type="number"
+            id="externalService"
+            value={externalService}
+            onChange={(e) => handleexternalServiceChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
+        </div>
+        <div className="grid grid-cols-1">
+          <label htmlFor="price" className="text-sm font-medium text-primaryColor">
+            Total Amount
+          </label>
+          <input
+            type="number"
+            id="price"
+            value={price}
+            onChange={(e) => handlepriceChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
+        </div>
+     
+      
+
+      {/* End of form inputs */}
+      <div className="grid grid-cols-1 gap-4 mb-4 py-4">
+            <button type="submit"
+              className="bg-peach hover:bg-beigeColor-700 text-primaryColor font-bold py-2 px-4 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
+              Register
+            </button>
+          </div>
+          </div>
+    </form>
 
 
 </div>

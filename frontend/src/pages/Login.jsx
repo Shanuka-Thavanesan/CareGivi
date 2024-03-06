@@ -59,7 +59,7 @@ const Login = () => {
 
             setLoading(false);
             toast.success(result.message);
-            navigate('/home');
+            window.location.href="/home"
 
         } catch (err) {
             toast.error(err.message);

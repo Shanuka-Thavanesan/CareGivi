@@ -18,6 +18,10 @@ const createNeeder = asyncHandler(async (req, res) => {
     behaviour,totalDays,
     startDate,
     endDate,
+    servicePerDay,
+    tax,
+    securityFee,
+    externalService,
     price
 
   } = req.body;
@@ -39,6 +43,10 @@ console.log(req.userId);
     behaviour,totalDays,
     startDate,
     endDate,
+    servicePerDay,
+    tax,
+    securityFee,
+    externalService,
     price});
   
     const createNeeder =await needer.save()
@@ -49,19 +57,58 @@ console.log(req.userId);
   }
 });
 
-export const updateNeeder= async(req,res)=>{
-  const id= req.params.id
+// export const updateNeeder= async(req,res)=>{
+//   const id= req.params.id
+//   console.log(id);
+
+//   try {
+
+//       const updatedNeeder= await Caretaker.findByIdAndUpdate(id,{$set:req.body},{new:true});
+
+//       res.status(200).json({success:true,message:"Successfully Updated", data:updatedNeeder});
+//       console.log(updateNeeder);
+      
+//   } catch (err) {
+//       res.status(500).json({success:false,message:"Failed to Update"});
+//   }
+// };
+
+
+
+
+export const updateNeeder = async (req, res) => {
+  const userId = req.params.id; // Access userId from req.params
+  const { price, status } = req.body; // Destructure price and status from req.body
 
   try {
+    // Find the Needer document by userId
+    const neederToUpdate = await Needer.findOne({ userId });
 
-      const updatedNeeder= await Caretaker.findByIdAndUpdate(id,{$set:req.body},{new:true});
+    if (neederToUpdate) {
+      // Update price and status if they exist in req.body
+      if (price !== undefined) {
+        neederToUpdate.price = price;
+      }
+      if (status !== undefined) {
+        neederToUpdate.isApproved = status;
+      }
 
-      res.status(200).json({success:true,message:"Successfully Updated", data:updatedNeeder});
-      
-  } catch (err) {
-      res.status(500).json({success:false,message:"Failed to Update"});
+      // Save the updated Needer document
+      const updatedNeeder = await neederToUpdate.save();
+
+      // Respond with the updated Needer document
+      res.status(200).json(updatedNeeder);
+    } else {
+      // If no Needer document found for the userId, respond with 404
+      res.status(404).json({ message: 'Needer not found' });
+    }
+  } catch (error) {
+    // Handle errors and respond with an error message
+    console.error('Error updating Needer:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
+
 
 export const deleteNeeder= async(req,res)=>{
   const id= req.params.id

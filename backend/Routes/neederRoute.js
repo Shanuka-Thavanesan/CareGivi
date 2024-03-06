@@ -18,6 +18,6 @@ const router=express.Router();
 router.post('/createneeder',authenticate,createNeeder);
 router.get('/:id',authenticate,getSingleNeeder);
 router.get('/getallneeders',authenticate,getAllNeeder);
-router.put('/updateneeder',authenticate,updateNeeder);
+router.put('/updateneeder/:id',authenticate,updateNeeder);
 router.delete('/deleteneeder',authenticate,deleteNeeder)
 export default router;

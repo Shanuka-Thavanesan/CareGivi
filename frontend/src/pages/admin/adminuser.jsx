@@ -27,7 +27,7 @@ function Users  ()  {
             </th>
             <th scope="col" className="py-3 text-xs font-medium text-700 uppercase">
               ID
-            </th>
+            </th> 
             <th scope="col" className="py-3 text-xs font-medium text-700 uppercase">
               Email
             </th>

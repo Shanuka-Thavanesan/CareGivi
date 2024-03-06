@@ -247,18 +247,18 @@ function calculateTotalPrice( totalDays) {
                   className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
             </div>
-            <div className="grid grid- gap-4 py-">
+            {/* <div className="grid grid- gap-4 py-">
             <label htmlFor="price"
                   className="text-sm font-medium text-primaryColor"
                 >Price:</label>
                 <input type="text" id="price" value={price!== null ? price :(`The total price for the selected service is: $${price}`) }  required
                   className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
-            </div>
+            </div> */}
             <div className="grid grid-cols-2 gap-4 py-2">
               <div className="grid grid-cols-1">
                 <label htmlFor="behaviour"
                   className="text-sm font-medium text-primaryColor"
-                >Behavioural Consideration about careneeder:</label>
+                >Behaviour about careneeder:</label>
                 <input type="text" id="behaviour" value={behaviour} onChange={(e) => handlebehaviourChange(e)} required
                   className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
