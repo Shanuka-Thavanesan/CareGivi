@@ -21,7 +21,8 @@ import Taker from '../pages/admin/adminCaretaker';
 import AdminTaker from "../pages/admin/admintakerdetails"
 import AdminService from "../pages/admin/adminSevice";
 import AdminServiceDetails from "../pages/admin/adminServiceDetails";
-import Invoice from "../pages/invoice/invoiceApp"
+import Invoice from "../pages/invoice/invoiceApp";
+import PaymentRecipt from "../Dashboard/user-account/PaymentRecipt"
 
 const Routers = () => {
     return <Routes>
@@ -47,6 +48,8 @@ const Routers = () => {
         < Route path="/adminservicedetails" element={<AdminServiceDetails />} />
         < Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
         < Route path="/invoice" element={<Invoice />} />
+        < Route path="/paymentRecipt" element={<PaymentRecipt />} />
+
     </Routes>
 };
 

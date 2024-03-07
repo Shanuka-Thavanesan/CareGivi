@@ -1,4 +1,4 @@
-import React,{useState,useEffect,Fragment, useContext} from "react";
+import React,{useState,useEffect, useContext} from "react";
 import { authContext } from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,6 +9,7 @@ function AdminNeeder ()  {
     const {token}=useContext(authContext);
     const {id}=useParams();
     const [status, setstatus] = useState('');
+    const [totalDays, settotalDays] = useState('');
     const [servicePerDay, setservicePerDay] = useState('');
     const [tax, settax] = useState('');
     const [securityFee, setsecurityFee] = useState('');
@@ -45,6 +46,9 @@ function AdminNeeder ()  {
      const handlestatusChange = (e) => {
       setstatus(e.target.value);
     };
+    const handletotalDaysChange = (e) => {
+      settotalDays(e.target.value);
+    };
     const handleservicePerDayChange = (e) => {
       setservicePerDay(e.target.value);
     }
@@ -63,12 +67,14 @@ function AdminNeeder ()  {
 
     const submitHandler = async (e) => {
       e.preventDefault()
+
+      //
      
   
       try {
         const response = await axios.put(
           `http://localhost:5000/api/v1/needer/updateneeder/${id}`,
-          { status, price },
+          { status,servicePerDay,tax,securityFee,externalService, price },
           { headers: { Authorization: 'Bearer ' + token } }
         );
         
@@ -82,7 +88,57 @@ function AdminNeeder ()  {
       } catch (error) {
         console.error('Error uploading:', error);
       }
-    }    
+    } 
+
+    // find the service price 
+    function calculateServicePrice( totalDays) {
+      
+      const pricePerDay = 2450 || 0;
+      if (isNaN(totalDays) || totalDays < 0) {
+        return null;
+      }
+      const totalPrice = pricePerDay * totalDays;
+      return totalPrice;
+    } 
+// find the tax price
+    function taxPrice( servicePerDay) {
+     
+  
+      const taxPrice = 0.12*servicePerDay ;
+      return taxPrice;
+    } 
+
+    useEffect(()=>{
+      
+      setservicePerDay(()=>calculateServicePrice(totalDays))
+      settax(()=>taxPrice(servicePerDay))
+      
+     },[totalDays,servicePerDay])
+
+// find the security price
+     function securityPrice( servicePerDay) {
+     
+  
+      const securityPrice = 0.2*servicePerDay ;
+      return securityPrice;
+    } 
+    function totalPrice (servicePerDay,tax,securityFee,externalService){
+      const totalPrice = servicePerDay+tax+securityFee+Number(externalService) ;
+        return totalPrice;
+    }
+    useEffect(()=>{
+      
+      setservicePerDay(()=>calculateServicePrice(totalDays))
+      setsecurityFee(()=>securityPrice(servicePerDay))
+       
+    setPrice(()=>totalPrice(servicePerDay,tax,securityFee,externalService))
+     },[totalDays,servicePerDay,externalService])
+
+  // find the total amount
+  
+
+  
+     
     return(
   
     <div className="mt-20 mb-20 flex justify-center">
@@ -118,14 +174,14 @@ function AdminNeeder ()  {
   <div className="col-span-1 py-2">
     <p className="text-xs font-medium text--500 uppercase tracking-wider">Phone -</p>
    
-      <p key={needer._id} className="whitespace-nowrap">{needer.phone} -</p>
+      <p key={needer._id} className="whitespace-nowrap">{needer.phone} </p>
     
   </div>
 
   <div className="col-span-1 py-2">
     <p className="text-xs font-medium text--500 uppercase tracking-wider">Emergency Phone -</p>
    
-      <p key={needer._id} className="whitespace-nowrap">{needer.emergencyPhone} -</p>
+      <p key={needer._id} className="whitespace-nowrap">{needer.emergencyPhone} </p>
     
   </div>
 
@@ -221,9 +277,21 @@ function AdminNeeder ()  {
           >
             <option value="pending">Pending...</option>
             <option value="approved">Approved</option>
-            <option value="cancel">camcel</option>
+            <option value="cancelled">Cancel</option>
             
           </select>
+        </div>
+        <div className="grid grid-cols-1">
+          <label htmlFor="totalDays" className="text-sm font-medium text-primaryColor">
+            Total Days
+          </label>
+          <input
+            type="string"
+            id="totalDays"
+            value={totalDays}
+            onChange={(e) => handletotalDaysChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
         </div>
         <div className="grid grid-cols-1">
           <label htmlFor="servicePerDay" className="text-sm font-medium text-primaryColor">
@@ -232,7 +300,7 @@ function AdminNeeder ()  {
           <input
             type="number"
             id="servicePerDay"
-            value={servicePerDay}
+            value={servicePerDay!== null ? servicePerDay :(`The total amount is: $${servicePerDay}`) } 
             onChange={(e) => handleservicePerDayChange(e)}
             className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
           />
@@ -293,7 +361,7 @@ function AdminNeeder ()  {
       <div className="grid grid-cols-1 gap-4 mb-4 py-4">
             <button type="submit"
               className="bg-peach hover:bg-beigeColor-700 text-primaryColor font-bold py-2 px-4 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
-              Register
+             Upload
             </button>
           </div>
           </div>

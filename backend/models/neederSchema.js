@@ -34,7 +34,7 @@ const neederSchema = new mongoose.Schema({
   servicePerDay:{type:Number},
   tax:{type:Number},
   securityFee:{type:Number},
-  externalService:{type:Number},
+  externalService:{type:String},
   price:{type:String},
   // appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
   isApproved: {

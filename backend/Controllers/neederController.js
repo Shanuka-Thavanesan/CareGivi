@@ -78,8 +78,8 @@ console.log(req.userId);
 
 export const updateNeeder = async (req, res) => {
   const userId = req.params.id; // Access userId from req.params
-  const { price, status } = req.body; // Destructure price and status from req.body
-
+  const { price,servicePerDay,tax,securityFee,externalService, status } = req.body; // Destructure price and status from req.body
+console.log(req.body)
   try {
     // Find the Needer document by userId
     const neederToUpdate = await Needer.findOne({ userId });
@@ -91,6 +91,12 @@ export const updateNeeder = async (req, res) => {
       }
       if (status !== undefined) {
         neederToUpdate.isApproved = status;
+      }
+      if(servicePerDay,tax,securityFee,externalService){
+        neederToUpdate.servicePerDay = servicePerDay;
+        neederToUpdate.tax = tax;
+        neederToUpdate.securityFee = securityFee;
+        neederToUpdate.externalService = externalService;
       }
 
       // Save the updated Needer document

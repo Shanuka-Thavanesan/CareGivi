@@ -86,7 +86,7 @@ export const getUserProfile = async(req, res)=>{
     const userId = req.userId
    
     try {
-        const user = await User.findById(userId)
+        const user = await User.findById(userId).select("-password")
 
         if(!user){
             return res.status(404).json({success:false, message:'User not found'})
@@ -94,10 +94,10 @@ export const getUserProfile = async(req, res)=>{
  
         const neederDetails= await Needer.findOne({userId}).populate("userId","name");
         console.log(neederDetails);
-        const {password, ...rest} = user._doc
-
+        // const {password, ...rest} = user
+         console.log(user);
         res.status(200)
-        .json({success:true, message:'Profile info is getting', data:{...rest},neederDetails})
+        .json({success:true, message:'Profile info is getting', data:user,neederDetails})
 
         
     } catch (err) {
