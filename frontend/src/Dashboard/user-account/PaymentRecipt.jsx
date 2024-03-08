@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { authContext } from "../../context/AuthContext";
+import PayButton from "../../pages/payment/paymentButton"
 function PaymentReceipt() {
   const [needer, setNeeder] = useState([]);
   const { token } = useContext(authContext);
@@ -8,7 +9,7 @@ function PaymentReceipt() {
   }, []);
   async function loadNeederDetails() {
     try {
-      const response = await fetch('http://localhost:5000/api/v1/needer/getpayment', {
+      const response = await fetch('http://localhost:5000/api/v1/needer/getpayment/profile', {
         headers: {
           "Content-Type": "application/json",
           'Authorization': 'Bearer ' + token,
@@ -54,6 +55,13 @@ function PaymentReceipt() {
         <span>Total Amount:</span>
         <span>{needer.price}LKR</span>
       </div>
+      <div className="btn-container" style={{ display: 'flex', justifyContent: 'center' }}>
+  <div className="btn hover:bg-yellowGreen hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl" style={{ width: '150px' }}>
+    <PayButton totalAmount={needer.price}/>
+  </div>
+</div>
+
+
     </div>
   );
 }

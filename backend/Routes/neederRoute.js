@@ -22,5 +22,5 @@ router.get('/getallneeders',authenticate,getAllNeeder);
 router.put('/updateneeder/:id',authenticate,updateNeeder);
 router.delete('/deleteneeder',authenticate,deleteNeeder);
 
-router.get('/getpayment',authenticate,getNeederForm);
+router.get('/getpayment/profile',authenticate,getNeederForm);
 export default router;

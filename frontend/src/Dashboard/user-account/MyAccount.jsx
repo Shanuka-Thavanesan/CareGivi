@@ -8,7 +8,7 @@ import { BASE_URL } from "../../config.js";
 
 import Loading from "../../componets/Loader/Loading";
 import Error from "../../componets/Error/Error";
-import PayButton from "../../pages/payment/paymentButton"
+
 
 const MyAccount = () => {
 
@@ -121,7 +121,7 @@ const MyAccount = () => {
                                         )}
 
                                     </div>
-                                 <PayButton/>
+                                 
                         </section>
 
                          {/* careneeder approval cancel*/}

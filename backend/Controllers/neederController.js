@@ -204,17 +204,14 @@ export const getNeederProfile = async(req,res)=>{
 export const getNeederForm = async (req, res) => {
   try {
     const neederDetails = await Needer.findOne({ userId: req.userId }).populate("userId", "name");
-   
     if (!neederDetails) {
-      // No needer details found for the user
-      return res.status(200).json({ success: true, message: "No needer details found for the user", data: null });
+      return res.status(404).json({ success: false, message: "No CareNeeder found" });
     }
-    res.status(200).json({ success: true, message: "Needer details found", data: neederDetails });
+    res.status(200).json({ success: true, message: "CareNeeder found", data: neederDetails });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
-  console.log(req.userId);
 };
 
 
