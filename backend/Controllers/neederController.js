@@ -1,4 +1,5 @@
-import Needer from "../models/neederSchema.js"; 
+
+import User from "../models/UserSchema.js";
 import asyncHandler from "express-async-handler";
 import {request} from "express";
 
@@ -78,11 +79,12 @@ console.log(req.userId);
 
 export const updateNeeder = async (req, res) => {
   const userId = req.params.id; // Access userId from req.params
-  const { price,servicePerDay,tax,securityFee,externalService, status } = req.body; // Destructure price and status from req.body
+  const { price,servicePerDay,tax,securityFee,externalService, status ,taker} = req.body; 
 console.log(req.body)
   try {
     // Find the Needer document by userId
     const neederToUpdate = await Needer.findOne({ userId });
+    const neederStatus = await User.findById( userId );
 
     if (neederToUpdate) {
       // Update price and status if they exist in req.body
@@ -91,8 +93,10 @@ console.log(req.body)
       }
       if (status !== undefined) {
         neederToUpdate.isApproved = status;
+        neederStatus.isApproved = status;
       }
-      if(servicePerDay,tax,securityFee,externalService){
+      if(servicePerDay,tax,securityFee,externalService,taker){
+        neederToUpdate.taker = taker;
         neederToUpdate.servicePerDay = servicePerDay;
         neederToUpdate.tax = tax;
         neederToUpdate.securityFee = securityFee;
@@ -101,6 +105,7 @@ console.log(req.body)
 
       // Save the updated Needer document
       const updatedNeeder = await neederToUpdate.save();
+      const updatedStatus = await neederStatus.save();
 
       // Respond with the updated Needer document
       res.status(200).json(updatedNeeder);
@@ -213,6 +218,8 @@ export const getNeederForm = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
+
+
 
 
   export {createNeeder};

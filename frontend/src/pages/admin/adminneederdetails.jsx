@@ -10,6 +10,7 @@ function AdminNeeder ()  {
     const {id}=useParams();
     const [status, setstatus] = useState('');
     const [totalDays, settotalDays] = useState('');
+    const [taker, settaker] = useState('');
     const [servicePerDay, setservicePerDay] = useState('');
     const [tax, settax] = useState('');
     const [securityFee, setsecurityFee] = useState('');
@@ -46,6 +47,9 @@ function AdminNeeder ()  {
      const handlestatusChange = (e) => {
       setstatus(e.target.value);
     };
+    const handletakerChange = (e) => {
+      settaker(e.target.value);
+    };
     const handletotalDaysChange = (e) => {
       settotalDays(e.target.value);
     };
@@ -74,7 +78,7 @@ function AdminNeeder ()  {
       try {
         const response = await axios.put(
           `http://localhost:5000/api/v1/needer/updateneeder/${id}`,
-          { status,servicePerDay,tax,securityFee,externalService, price },
+          { status,servicePerDay,tax,securityFee,externalService, price,taker },
           { headers: { Authorization: 'Bearer ' + token } }
         );
         
@@ -282,6 +286,18 @@ function AdminNeeder ()  {
           </select>
         </div>
         <div className="grid grid-cols-1">
+          <label htmlFor="taker" className="text-sm font-medium text-primaryColor">
+            Caretaker Assaign:
+          </label>
+          <input
+            type="string"
+            id="taker"
+            value={taker}
+            onChange={(e) => handletakerChange(e)}
+            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+          />
+        </div>
+        <div className="grid grid-cols-1">
           <label htmlFor="totalDays" className="text-sm font-medium text-primaryColor">
             Total Days
           </label>
@@ -354,6 +370,7 @@ function AdminNeeder ()  {
             className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
           />
         </div>
+        
      
       
 

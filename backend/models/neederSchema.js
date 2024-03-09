@@ -36,12 +36,14 @@ const neederSchema = new mongoose.Schema({
   securityFee:{type:Number},
   externalService:{type:String},
   price:{type:String},
+  taker:{type:String},
   // appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
   isApproved: {
     type: String,
     enum: ["pending", "approved", "cancelled"],
     default: "pending",
   },
+isPaid:{type:Boolean, default:"false"},
 });
 
 const Needer =mongoose.model("Needer", neederSchema);

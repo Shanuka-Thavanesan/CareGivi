@@ -1,5 +1,4 @@
-
-
+import Needer from "../models/neederSchema.js"; 
 import Booking from "../models/BookingSchema.js";
 import Caretaker from "../models/caretakerSchema.js";
 import asyncHandler from "express-async-handler";
@@ -19,7 +18,7 @@ export const updateCaretaker = async (req, res) => {
     }
 };
 
-// ==================================delete caretakers===============
+// =======================delete caretakers==================
 export const deleteCaretaker = async (req, res) => {
     const id = req.params.id
 
@@ -99,3 +98,17 @@ export const getCaretakerProfile = async (req, res) => {
 
     }
 }
+
+//========================get needer details=======================
+export const takerProfile = async (req, res) => {
+    try {
+      const neederDetails = await Needer.findOne({ taker: req.userId }).populate("userId", "name");
+      if (!neederDetails) {
+        return res.status(404).json({ success: false, message: "No CareNeeder found" });
+      }
+      res.status(200).json({ success: true, message: "CareNeeder found", data: neederDetails });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+  };

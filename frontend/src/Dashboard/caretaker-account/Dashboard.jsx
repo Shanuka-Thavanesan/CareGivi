@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import userImg from "../../assets/images/userImg.png"
 import { authContext } from "../../context/AuthContext";
 import TakerProfile from "./TakerProfile";
+import Neederdetails from "./careneederOrder"
 import Loader from "../../componets/Loader/Loading"
 import Error from "../../componets/Error/Error"
 import useGetProfile from "../../hooks/usefetchData"
@@ -94,6 +95,7 @@ const Dashboard = () => {
 
                                     </div>
                                     </section>
+                                    <Neederdetails/>
 
                                 </div>
 
@@ -111,6 +113,7 @@ const Dashboard = () => {
                                     }
                                 </div>
                             </div>
+                            
                         // </div>
                     )
                 }
