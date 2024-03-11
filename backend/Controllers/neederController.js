@@ -1,4 +1,4 @@
-
+import Needer from "../models/neederSchema.js"; 
 import User from "../models/UserSchema.js";
 import asyncHandler from "express-async-handler";
 import {request} from "express";
@@ -79,8 +79,9 @@ console.log(req.userId);
 
 export const updateNeeder = async (req, res) => {
   const userId = req.params.id; // Access userId from req.params
+  console.log(userId)
   const { price,servicePerDay,tax,securityFee,externalService, status ,taker} = req.body; 
-console.log(req.body)
+
   try {
     // Find the Needer document by userId
     const neederToUpdate = await Needer.findOne({ userId });

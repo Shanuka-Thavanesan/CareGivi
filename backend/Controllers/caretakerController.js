@@ -99,6 +99,31 @@ export const getCaretakerProfile = async (req, res) => {
     }
 }
 
+export const getAdminProfile = async (req, res) => {
+    const caretakerId = req.userId
+
+    try {
+        const caretaker = await Caretaker.findById(caretakerId)
+
+        if (!caretaker) {
+            return res.status(404).json({ success: false, message: 'Caretaker not found' })
+        }
+
+        const { password, ...rest } = caretaker._doc;
+        const appoinments = await Booking.find({ caretaker: caretakerId })
+
+        res.status(200)
+            .json({ success: true, message: 'Profile info is getting', data: { ...rest, appoinments } })
+
+
+    } catch (err) {
+        res.status(500)
+            .json({ success: false, message: "Something went wrong, cannot get" });
+
+
+    }
+}
+
 //========================get needer details=======================
 export const takerProfile = async (req, res) => {
     try {

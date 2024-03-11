@@ -122,10 +122,12 @@ function calculateTotalPrice( totalDays) {
 
   return (
     <section className="mb-12 ">
-      <div className="w-full max-w-xl mx-auto mt-12 border border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
+
         <form onSubmit={(e) => uploadHandler(e)}>
-          {/* <div className="ventor-form"> */}
-          <h2 className="text-2xl font-bold mb-6 text-primaryColor filter drop-shadow-md md:drop-shadow-xl">Care Needer Details Registration</h2>
+        <div className="grid grid-cols-2  py-2">
+        <div className="grid grid-cols-1">
+               <div className="w-full max-w-xl mx-auto mt-12 border border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
+          <h2 className="text-2xl font-bold mb-6 text-primaryColor filter drop-shadow-md md:drop-shadow-xl">Care Needer Details</h2>
           <div className="mb-8">
             <div className="grid grid-cols-2 gap-4 py-2">
               <div className="grid grid-cols-1">
@@ -179,7 +181,6 @@ function calculateTotalPrice( totalDays) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 py-2">
               <div className="grid grid-cols-1">
                 <label htmlFor="gender"
                   className="text-sm font-medium text-primaryColor"
@@ -197,6 +198,15 @@ function calculateTotalPrice( totalDays) {
                   <option value="other">Other</option>
                 </select>
               </div>
+              </div>
+              </div>
+              </div>
+
+              {/* ======================================service details============================ */}
+              <div className="grid grid-cols-1">
+              <div className="w-full max-w-xl mx-auto mt-12 border border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
+              <h2 className="text-2xl font-bold mb-6 text-primaryColor filter drop-shadow-md md:drop-shadow-xl">Service Details </h2>
+              <div className="mb-8">
               <div className="grid grid-cols-1">
                 <label htmlFor=" genderRequirement"
                   className="text-sm font-medium text-primaryColor"
@@ -214,7 +224,7 @@ function calculateTotalPrice( totalDays) {
                   <option value="other">Other</option>
                 </select>
               </div>
-            </div>
+            
             <div className="grid grid-cols-2 gap-4 py-2">
             <div className="grid grid-cols-1">
                 <label htmlFor="startDate"
@@ -247,13 +257,7 @@ function calculateTotalPrice( totalDays) {
                   className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
             </div>
-            {/* <div className="grid grid- gap-4 py-">
-            <label htmlFor="price"
-                  className="text-sm font-medium text-primaryColor"
-                >Price:</label>
-                <input type="text" id="price" value={price!== null ? price :(`The total price for the selected service is: $${price}`) }  required
-                  className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
-            </div> */}
+      
             <div className="grid grid-cols-2 gap-4 py-2">
               <div className="grid grid-cols-1">
                 <label htmlFor="behaviour"
@@ -270,18 +274,23 @@ function calculateTotalPrice( totalDays) {
                   className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
             </div>
-          </div>
+          
 
-          <div className="grid grid-cols-1 gap-4 mb-4">
+          <div className="grid grid-cols-1 gap-4 mb-4 py-2 ">
             <button type="submit"
               className="bg-peach hover:bg-blue-700 text-primaryColor font-bold py-2 px-4 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
               Register
             </button>
           </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          
         
         </form>
 
-      </div>
+      
 
     </section>
   );

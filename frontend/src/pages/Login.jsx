@@ -4,6 +4,7 @@ import { BASE_URL } from "../config.js";
 import { toast } from "react-toastify";
 import { authContext } from '../context/AuthContext.jsx';
 import HashLoader from "react-spinners/HashLoader.js";
+import axios from "axios"
 
 const Login = () => {
 
@@ -28,9 +29,9 @@ const Login = () => {
        
 
         try {
-            const res = await fetch(`${BASE_URL}/auth/login`, {
+            const res = await fetch(`${BASE_URL}/auth/login/auth`, {
                 method: 'post',
-                Credentials:"include",
+                // WithCredentials:true,
         
                 
                 headers: {

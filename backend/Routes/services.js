@@ -13,7 +13,7 @@ const router= express.Router();
 router.post('/services',service);
 router.get('/services/get',getservices);
 router.get('/services/:id',getserviceId);
-router.delete('/services/:id',deleteserviesId);
-router.put('/services',UpdateService);
+router.delete('/services/delete:id',deleteserviesId);
+router.put('/services/update/:id',UpdateService);
 
 export default router;

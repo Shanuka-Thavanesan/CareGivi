@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import userImg from "../../assets/images/userImg.png"
 import { authContext } from "../../context/AuthContext";
 import Profile from "./Profile";
+import PaymentReceipt from "./PaymentRecipt"
 
 import useGetProfile from '../../hooks/usefetchData';
 import { BASE_URL } from "../../config.js";
@@ -14,6 +15,7 @@ const MyAccount = () => {
 
     const { dispatch } = useContext(authContext);
     const [tab, setTab] = useState('settings');
+    const {user, role , token}=useContext(authContext)
 
     const {data:userData, loading, error}=useGetProfile(`${BASE_URL}/users/profile/me`);
 
@@ -46,10 +48,10 @@ const MyAccount = () => {
 
                         <div className="text-center mt-4">
                             <h3 className="text-[18px] leading-[30px] text-headingColor font-bold">
-                                rajee
+                                {user.name}
                             </h3>
                             <p className="text-textColor text-[15px] leading-6 font-medium">
-                                rajee@gmail.com
+                                {user.email}
                             </p>
                         </div>
 
@@ -97,6 +99,7 @@ const MyAccount = () => {
                      <section className="mt-5">
                                     <div className="lg:col-span-2">
                                         {userData.isApproved ==="approved" && ( 
+                                            <>
                                         <div className="flex p-4 mb-4 text-primaryColor-800 bg-peach rounded-lg"> 
                                         <svg
                                         aria-hidden="true"
@@ -117,8 +120,13 @@ const MyAccount = () => {
                                                 <div className="ml-3 text-sm font-medium text-primaryColor">
                                                     Your request is approved, Click the payment button and pay the amount!
                                                 </div>
+     
                                         </div>
+                                                                                <PaymentReceipt/>
+                                                                                </>
+
                                         )}
+                                        
 
                                     </div>
                                  

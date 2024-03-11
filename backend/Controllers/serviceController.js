@@ -49,22 +49,24 @@ const deleteserviesId = asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
         const deleteservies = await Services.findOneAndDelete(id)
-        res.json({ message: 'Service removed', deleteservies });
+        res.json({ message: 'Service deleted', deleteservies });
     } catch {
         res.status(404);
         throw new Error('Service not found');
     }
 });
 
-/// @desc  pa UpdateService
+/// @desc  UpdateService
 const UpdateService = asyncHandler(async (req, res) => {
     try {
         const id = req.params.id;
         const title = req.body;
-        const description = req.body;
-        // const image = req.body;
+        const need = req.body;
+        const type = req.body;
+        const benifit = req.body;
+        const servicePerDay = req.body;
         const result = await Services.findByIdAndUpdate(
-            id, title, description
+            id, title, need,type,benifit,servicePerDay
         )
         res.send(result)
     }

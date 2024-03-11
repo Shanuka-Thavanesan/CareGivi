@@ -7,7 +7,7 @@ const caretakerSchema = new mongoose.Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   phone: { type: Number},
-  photo: { url: String },
+  photo: { photo: String,},
   
   role: {
     type: String,
@@ -31,16 +31,5 @@ const caretakerSchema = new mongoose.Schema({
   
   appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
 });
-caretakerSchema.pre('save',async function(next){
-  if (!this.isModified('password')){
- next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  this.password =await bcrypt.hash(this.password,salt)
-});
-caretakerSchema.methods.matchPassword= async function(enteredPassword){
-return await bcrypt.compare(enteredPassword, this.password)
-};
-
 
 export default mongoose.model("Caretaker", caretakerSchema);

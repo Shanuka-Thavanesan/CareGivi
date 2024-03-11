@@ -14,7 +14,7 @@ const Dashboard = () => {
     const { dispatch } = useContext(authContext);
     const [tab, setTab] = useState('settings');
 
-
+    const {user, role , token}=useContext(authContext)
     const { data, loading, error } = useGetProfile(`${BASE_URL}/caretakers/profile/me`);
 
     console.log(data, "data");
@@ -47,10 +47,10 @@ const Dashboard = () => {
 
                                     <div className="text-center mt-4">
                                         <h3 className="text-[18px] leading-[30px] text-headingColor font-bold">
-                                            Nilax
+                                        {user.name}
                                         </h3>
                                         <p className="text-textColor text-[15px] leading-6 font-medium">
-                                            nilax@gmail.com
+                                           {user.name}
                                         </p>
                                     </div>
                                     

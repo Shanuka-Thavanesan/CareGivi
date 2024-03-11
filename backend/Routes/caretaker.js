@@ -5,7 +5,8 @@ import { updateCaretaker,
         getAllCaretaker,
         getSingleCaretaker,
         getCaretakerProfile,
-        takerProfile
+        takerProfile,
+        getAdminProfile
      } from "../Controllers/caretakerController.js";
 import { authenticate, restrict } from "../auth/verifyToken.js";
 
@@ -23,6 +24,7 @@ router.put('/:id',authenticate,restrict(['caretaker']),updateCaretaker);
 router.delete('/:id',authenticate,restrict(['caretaker']),deleteCaretaker);
 
 router.get('/profile/me',authenticate,restrict(['caretaker']),getCaretakerProfile);
-router.get('/gettaker/profile',authenticate,takerProfile);
+router.get('/profile/admin',authenticate,getAdminProfile);
+router.get('/gettaker/profile/needer',authenticate,takerProfile);
 
 export default router;

@@ -143,7 +143,6 @@ const Signup = () => {
                         py-3 focus:outline-none rounded pr-4 hover:bg-peach ml-3'>
                                 <option value="careneeder">Care Needer</option>
                                 <option value="caretaker">Caretaker</option>
-                                <option value="admin">Caretaker</option>
                             </select>
                         </label>
 

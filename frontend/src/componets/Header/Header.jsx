@@ -129,14 +129,24 @@ const Header =()=>{
                         < Link to={`${
                             role=='caretaker' 
                             ? '/caretakers/profile/me'
-                            : '/users/profile/me'
+                            :role=="admin"?
+                            "/adminProfile":
+                             '/users/profile/me'
+                            
+                            
                             }`}>
-                            <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
+                                 <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[35px]
+                     flex items-center justify-ceneter rounded-[50px] hover:bg-yellowGreen hover:text-primaryColor 
+                     filter drop-shadow-md md:drop-shadow-xl'>
+                        {user.name}
+                        </button>
+                                
+                            {/* <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
                                 <img 
                                 src={user ?.photo} 
                                 className='w-full rounded-full' 
                                 alt="" />
-                            </figure>
+                            </figure> */}
 
                             {/* <h2>{user?.name}</h2> */}
                             

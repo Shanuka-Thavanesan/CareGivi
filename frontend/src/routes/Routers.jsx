@@ -19,8 +19,10 @@ import ProtectedRoute from './ProtectedRoute';
 import Users from '../pages/admin/adminuser';
 import Taker from '../pages/admin/adminCaretaker';
 import AdminTaker from "../pages/admin/admintakerdetails"
-import AdminService from "../pages/admin/adminSevice";
+import AdminService from "../pages/admin/adminSevice"
+import AdminDashboard from "../pages/admin/adminProfile"
 import AdminServiceDetails from "../pages/admin/adminServiceDetails";
+import ServiceUpdate from "../pages/admin/adminServiceUpdate"
 import Invoice from "../pages/invoice/invoiceApp";
 import PaymentRecipt from "../Dashboard/user-account/PaymentRecipt"
 
@@ -42,10 +44,12 @@ const Routers = () => {
 
         < Route path="/Users" element={<Users />} />
         < Route path="/Taker" element={<Taker />} />
+        < Route path="/adminProfile" element={<AdminDashboard />} />
         <Route path={`/AdminNeeder/:id`} element={<AdminNeeder />} />
         <Route path={`/Admintaker/:id`} element={<AdminTaker />} />
         < Route path="/adminservice" element={<AdminService />} />
         < Route path="/adminservicedetails" element={<AdminServiceDetails />} />
+        < Route path={`/ServiceUpdate/:id?`} element={<ServiceUpdate />} />
         < Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
         < Route path="/invoice" element={<Invoice />} />
         < Route path="/paymentRecipt" element={<PaymentRecipt />} />

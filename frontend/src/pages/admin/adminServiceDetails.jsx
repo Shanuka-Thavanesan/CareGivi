@@ -1,9 +1,16 @@
 
 import { Link } from 'react-router-dom'
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
+import {toast} from "react-toastify";
+import axios from "axios";
+import ServiceUpdate from "./adminServiceUpdate"
 
-function Services ()  {
+
+function Services (params,data)  {
     const [service, setservice] = useState([]);
+    
+
+    
     useEffect(() => {
         loadUser();
       }, []);
@@ -20,6 +27,14 @@ function Services ()  {
             }
             catch (error)
             { console.error('Error fetching data:', error); } };
+
+            const handleDelete = async (id) => {
+              axios.delete(`http://localhost:5000/api/v1/services/delete/${id}`).then((res) => {
+                toast.success("Service deleted succesfully!")
+              })
+              window.location.reload();
+            };
+
   return (
 
     <div className="user11 mx-auto w-full lg:w-5/6 mt-10 mb-20">
@@ -63,13 +78,14 @@ function Services ()  {
               <td className="py-4">{service.title}</td>
               <td className="py-4">{service.need}</td>
               <td className="py-4">{service.type}</td>
-              <td className="py-4">{service.benefit}</td>
+              <td className="py-4">{service.benifit}</td>
               <td className="py-4">{service.servicePerDay}</td>
               <td className="py-4">
-                <button className="rounded bg-beigeColor px-2 ">Update</button>
+              <Link to={`/ServiceUpdate/${service._id}`}><button  className="rounded bg-beigeColor px-2 ">Update</button> </Link>
                 <div className="py-1">
-                  <button className="rounded bg-red px-3 text-white">Delete</button>
+                  <button onClick={() => handleDelete(params.id)}className="rounded bg-red px-3 text-white">Delete</button>
                 </div>
+                
               </td>
             </tr>
           ))}
