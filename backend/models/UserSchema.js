@@ -20,6 +20,7 @@ const UserSchema = new mongoose.Schema({
     enum: ["pending", "approved", "cancelled"],
     default: "pending",
   },
+  isPaid:{type:Boolean, default:"false"},
   
   appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
 });

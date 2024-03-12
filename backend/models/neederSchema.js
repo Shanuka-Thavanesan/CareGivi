@@ -43,7 +43,7 @@ const neederSchema = new mongoose.Schema({
     enum: ["pending", "approved", "cancelled"],
     default: "pending",
   },
-isPaid:{type:Boolean, default:"false"},
+
 });
 
 const Needer =mongoose.model("Needer", neederSchema);

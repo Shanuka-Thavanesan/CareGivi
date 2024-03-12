@@ -18,6 +18,7 @@ import ProtectedRoute from './ProtectedRoute';
 
 import Users from '../pages/admin/adminuser';
 import Taker from '../pages/admin/adminCaretaker';
+import TakerAssaign from "../Dashboard/user-account/caretakerAssaign"
 import AdminTaker from "../pages/admin/admintakerdetails"
 import AdminService from "../pages/admin/adminSevice"
 import AdminDashboard from "../pages/admin/adminProfile"
@@ -44,6 +45,7 @@ const Routers = () => {
 
         < Route path="/Users" element={<Users />} />
         < Route path="/Taker" element={<Taker />} />
+        < Route path="/TakerAssaign" element={<TakerAssaign />} />
         < Route path="/adminProfile" element={<AdminDashboard />} />
         <Route path={`/AdminNeeder/:id`} element={<AdminNeeder />} />
         <Route path={`/Admintaker/:id`} element={<AdminTaker />} />

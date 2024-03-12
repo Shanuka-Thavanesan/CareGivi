@@ -135,7 +135,7 @@ const MyAccount = () => {
                          {/* careneeder approval cancel*/}
                      <section className="mt-5">
                                     <div className="lg:col-span-2">
-                                        {userData.isApproved ==="cancel" && (
+                                        {userData.isApproved ==="cancelled" && (
                                         <div className="flex p-4 mb-4 text-primaryColor-800 bg-peach rounded-lg"> 
                                         <svg
                                         aria-hidden="true"
