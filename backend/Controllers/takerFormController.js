@@ -42,41 +42,37 @@ const createTaker = asyncHandler(async (req, res) => {
 
 });
 
-// export const updateTaker= async(req,res)=>{
-//   const id= req.params.id
-
-//   try {
-
-//       const updatedTaker= await Caretaker.findByIdAndUpdate(id,{$set:req.body},{new:true});
-
-//       res.status(200).json({success:true,message:"Successfully Updated", data:updatedTaker});
-
-//   } catch (err) {
-//       res.status(500).json({success:false,message:"Failed to Update"});
-//   }
-// };
-
-
 export const updateTaker = async (req, res) => {
-  const id = req.params.id;
+  const userId = req.params.id; // Access userId from req.params
+  console.log(userId)
+  const {  status} = req.body; 
 
   try {
-    // Find and update the Taker document by ID
-    const updatedTaker = await Taker.findByIdAndUpdate(id, req.body, {
-      new: true, // Return the updated document
-    });
+    // Find the Taker document by userId
+    const takerToUpdate = await Taker.findOne({ userId });
+    const takerStatus = await User.findById( userId );
 
-    if (updatedTaker) {
-      // If update was successful, respond with the updated document
-      res.status(200).json({ success: true, message: 'Successfully updated', data: updatedTaker });
+    if (takerToUpdate) {
+     
+      if (status !== undefined) {
+        takerToUpdate.isApproved = status;
+        takerStatus.isApproved = status;
+      }
+     
+      // Save the updated taker document
+      const updatedtaker = await takerToUpdate.save();
+      const updatedStatus = await takerStatus.save();
+
+      // Respond with the updated taker document
+      res.status(200).json(updatedtaker);
     } else {
-      // If no Taker document found for the ID, respond with 404
-      res.status(404).json({ success: false, message: 'Taker not found' });
+      // If no Taker document found for the userId, respond with 404
+      res.status(404).json({ message: 'Taker not found' });
     }
-  } catch (err) {
+  } catch (error) {
     // Handle errors and respond with an error message
-    console.error('Error updating Taker:', err);
-    res.status(500).json({ success: false, message: 'Failed to update Taker' });
+    console.error('Error updating Taker:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 

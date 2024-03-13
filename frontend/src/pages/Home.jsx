@@ -136,7 +136,7 @@ const Home = () => {
 
         {/* ============================= About Us ========================== */}
         <section className='bg- py-6  '>
-            <div className="container py-20  " >
+            <div className="container py-20 mt-5 " >
                 <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row ">
 
                     {/*================== about image =================== */}

@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { authContext } from "../../context/AuthContext";  
 
-const TakerAssaign =()=>{
-    const {id}=needer.taker;
+const TakerAssaign =({id})=>{
+    // const {id}=needer.taker;
     const [caretaker, setcaretaker] = useState([]);
     const { user, role, token } = useContext(authContext)
 
@@ -26,7 +26,7 @@ const TakerAssaign =()=>{
           }
       
           const data = await response.json();
-          settaker(data.data);
+          setcaretaker(data.data);
           console.log(data)
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -35,7 +35,7 @@ const TakerAssaign =()=>{
       
       return(
         <div className="max-w-lg mx-auto shadow-lg p-6 border border-solid border-yellowGreen rounded-lg filter drop-shadow-md md:drop-shadow-xl">
-      <h2 className="text-2xl font-semibold mb-4 color-primaryColor">Caretaker Details</h2>
+      <h2 className="text-2xl font-semibold mb-4 color-primaryColor">Here is your Caretaker!</h2>
       <div className="flex justify-between mb-2">
         <span>Name:</span>
         <span>{caretaker.name}</span>

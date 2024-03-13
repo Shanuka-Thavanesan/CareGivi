@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { authContext } from "../../context/AuthContext";
 import PayButton from "../../pages/payment/paymentButton"
+import TakerAssaign from "./caretakerAssaign"
 function PaymentReceipt() {
   const [needer, setNeeder] = useState([]);
   const { token } = useContext(authContext);
@@ -25,6 +26,7 @@ function PaymentReceipt() {
     }
   }
   return (
+    <>
     <div className="max-w-lg mx-auto shadow-lg p-6 border border-solid border-yellowGreen rounded-lg filter drop-shadow-md md:drop-shadow-xl">
       <h2 className="text-2xl font-semibold mb-4 color-primaryColor">Payment Receipt</h2>
       <div className="flex justify-between mb-2">
@@ -59,10 +61,11 @@ function PaymentReceipt() {
   <div className="btn hover:bg-yellowGreen hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl" style={{ width: '150px' }}>
     <PayButton totalAmount={needer.price}/>
   </div>
+  
 </div>
-
-
     </div>
+    <TakerAssaign id={needer.taker}/>
+    </>
   );
 }
 export default PaymentReceipt;

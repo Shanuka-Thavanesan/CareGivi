@@ -44,7 +44,7 @@ function AdminTaker ()  {
 
      try {
       const response = await axios.put(
-        `http://localhost:5000/api/v1/taker/updatetaker/${id}`,
+        `http://localhost:5000/api/v1/taker/updatetaker/update/${id}`,
         { status},
         { headers: { Authorization: 'Bearer ' + token } }
       );
