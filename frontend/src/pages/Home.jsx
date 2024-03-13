@@ -1,7 +1,7 @@
 import React from 'react';
 // import About from '../componets/About/About';
 import CareGivilogo from '../assets/images/CareGivilogo.png';
-import CareGiviLOGO from "../assets/images/LOGO-.png"
+import CareGiviLOGO from "../assets/images/heroIMG.png"
 import caretaker2 from '../assets/images/caretaker2.png';
 import { Link } from 'react-router-dom';
 import { BsArrowRight, } from 'react-icons/bs';
@@ -18,7 +18,7 @@ const Home = () => {
 
         {/* ================== hero section ============== */}
 
-        <section className='hero_section pt-[60px]drop-shadow-md md:drop-shadow-xl 2xl:h-[800] '>
+        <section className='hero_section drop-shadow-md md:drop-shadow-xl 2xl:h-[900] '>
             <div className='container'>
                 <div className='flex flex-col lg:flex-row gap-[90px] items-center justify-between '>
 
@@ -53,9 +53,9 @@ const Home = () => {
                     {/* ================= hero contant ==================*/}
 
 
-                    <div className='flex gap-[30px] mb-5 justify-end'>
+                    <div className='flex gap-[30px] mb-5 justify-end py-12'>
                         <div>
-                            <img className='py-12 mt-20 mb-20  w-full' src={CareGiviLOGO} alt="" />
+                        <img className='py-12 mt-20 mb-20  w-full h-full' src={CareGiviLOGO} alt="" /> 
                         </div>
                     </div>
                 </div>

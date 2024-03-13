@@ -34,6 +34,9 @@ function Users() {
             <th scope="col" className="py-3 text-xs font-medium text-700 uppercase">
               Status
             </th>
+            {/* <th scope="col" className="py-3 text-xs font-medium text-700 uppercase">
+              Payment
+            </th> */}
             <th scope="col" className="py-3 text-xs font-medium text-700 uppercase">
               Details
             </th>
@@ -46,6 +49,7 @@ function Users() {
               <td className="py-4">{user._id}</td>
               <td className="py-4">{user.email}</td>
               <td className="py-4">{user.isApproved}</td>
+              {/* <td className="py-4">{user.isPaid}</td> */}
               <td className="py-4">
                 <Link to={`/AdminNeeder/${user._id}`}><button className=''>View</button></Link>
               </td>
