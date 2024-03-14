@@ -10,7 +10,7 @@ const TakerAssaign =({id})=>{
     useEffect(() => {
         loadUser(id);
         
-      }, []);
+      }, [id]);
       async function loadUser(id) {
         try {
           const response = await fetch(`http://localhost:5000/api/v1/taker/get/${id}`, {

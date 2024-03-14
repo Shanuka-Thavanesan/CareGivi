@@ -4,7 +4,7 @@ import PayButton from "../../pages/payment/paymentButton"
 import TakerAssaign from "./caretakerAssaign"
 function PaymentReceipt() {
   const [needer, setNeeder] = useState([]);
-  const { token } = useContext(authContext);
+  const { user,token } = useContext(authContext);
   useEffect(() => {
     loadNeederDetails();
   }, []);
@@ -27,6 +27,7 @@ function PaymentReceipt() {
   }
   return (
     <>
+    {!user.isPaid === true && (
     <div className="max-w-lg mx-auto shadow-lg p-6 border border-solid border-yellowGreen rounded-lg filter drop-shadow-md md:drop-shadow-xl">
       <h2 className="text-2xl font-semibold mb-4 color-primaryColor">Payment Receipt</h2>
       <div className="flex justify-between mb-2">
@@ -64,7 +65,10 @@ function PaymentReceipt() {
   
 </div>
     </div>
+    )}
+    {user.isPaid === true && (
     <TakerAssaign id={needer.taker}/>
+    )}
     </>
   );
 }

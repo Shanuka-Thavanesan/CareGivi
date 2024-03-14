@@ -101,7 +101,7 @@ const MyAccount = () => {
                                     <div className="lg:col-span-2">
                                         {userData.isApproved === "approved" && (
                                             <>
-                                                <div className="flex p-4 mb-4 text-primaryColor-800 bg-peach rounded-lg">
+                                                {/* <div className="flex p-4 mb-4 text-primaryColor-800 bg-peach rounded-lg">
                                                     <svg
                                                         aria-hidden="true"
                                                         className="flex-shrink-0 w-5 h-5"
@@ -122,7 +122,7 @@ const MyAccount = () => {
                                                         Your request is approved, Click the payment button and pay the amount!
                                                     </div>
 
-                                                </div>
+                                                </div> */}
                                                 <PaymentReceipt />
 
                                             </>

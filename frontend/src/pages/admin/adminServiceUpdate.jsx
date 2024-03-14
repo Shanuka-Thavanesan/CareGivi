@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { authContext } from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
 const ServiceUpdate = () => {
@@ -11,6 +12,7 @@ const ServiceUpdate = () => {
     const [type, settype] = useState('');
     const [benifit, setbenifit] = useState('');
     const [servicePerDay, setservicePerDay] = useState('');
+    const navigate = useNavigate()
    
 
     const { user, role, token } = useContext(authContext)
@@ -46,6 +48,7 @@ const handletitleChange = (e) => {
            { headers: { 'Authorization': 'Bearer ' + token } });
       if (response.statusText == "OK") {
         console.log('Upload successful!');
+        navigate("/adminservicedetails")
         
       } else {
         console.log(response);

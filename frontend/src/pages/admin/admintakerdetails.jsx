@@ -2,11 +2,15 @@ import React,{useState,useEffect,Fragment, useContext} from "react";
 import { authContext } from "../../context/AuthContext";
 import { useParams , Link} from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 function AdminTaker ()  {
     const [caretaker, setcaretaker] = useState([]);
     const {token}=useContext(authContext);
     const {id}=useParams();
     const [status, setstatus] = useState('');
+    const navigate = useNavigate()
+
     // console.log(token);
     useEffect(() => {
         loadUser(id);
@@ -51,6 +55,7 @@ function AdminTaker ()  {
       
       if (response.status === 200) {
         console.log('Upload successful!');
+        navigate("/Taker")
         // You may perform additional actions here upon successful update
       } else {
         console.log('Upload failed. Response:', response);
@@ -62,7 +67,7 @@ function AdminTaker ()  {
   } 
     return(
   
-      <div className="mt-20 mb-20 flex justify-center">
+      <div className="mt-20 mb-20 flex justify-center py-8">
   <div className="grid grid-cols-2 gap-x-4  w-2/4 ">
   <div className="col-span-1 py-2">
     <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Name -</p>
@@ -181,11 +186,11 @@ function AdminTaker ()  {
             id="status"
             value={status}
             onChange={(e) => handlestatusChange(e)}
-            className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-beigeColor-500 focus:border-beigeColor-500"
+            className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-beigeColor-500 focus:border-beigeColor-500"
           >
             <option value="pending">Pending...</option>
             <option value="approved">Approved</option>
-            <option value="cancel">camcel</option>
+            <option value="cancelled">Cancel</option>
             
           </select>
         </div>

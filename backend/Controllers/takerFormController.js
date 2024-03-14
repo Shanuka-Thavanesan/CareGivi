@@ -50,7 +50,7 @@ export const updateTaker = async (req, res) => {
   try {
     // Find the Taker document by userId
     const takerToUpdate = await Taker.findOne({ userId });
-    const takerStatus = await User.findById( userId );
+    const takerStatus = await Taker.findById( userId );
 
     if (takerToUpdate) {
      

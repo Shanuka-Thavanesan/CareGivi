@@ -1,6 +1,7 @@
 
 import React, { useContext, useState } from 'react';
-import axios from "axios"
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import uploadImageToCloudinary from "../../utils/uploadCloudinary.js";
 import { authContext } from '../../context/AuthContext.jsx';
 
@@ -22,6 +23,7 @@ const CareTakerForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPeviewURL] = useState('');
   const { token}=useContext(authContext)
+  const navigate = useNavigate()
 
   const handlenameChange = (e) => {
     setName(e.target.value);
@@ -95,6 +97,7 @@ const CareTakerForm = () => {
      
       if (response.statusText == "OK") {
         console.log('Upload successful!');
+        navigate("/caretakers/profile/me")
       } else {
         console.log(response);
       }

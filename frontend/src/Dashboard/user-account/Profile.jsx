@@ -81,7 +81,7 @@ return (
     <div className="w-full max-w-xl mx-auto mt-12  border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
       <form onSubmit={(e) => uploadHandler(e)}>
         {/* <div className="ventor-form"> */}
-        <h2 className="text-2xl font-bold mb-6 text-primaryColor filter drop-shadow-md md:drop-shadow-xl">Care Needer Details Update</h2>
+        <h2 className="text-2xl font-bold mb-6 text-primaryColor filter drop-shadow-md md:drop-shadow-xl">Your details updation</h2>
         <div className="mb-8">
           <div className="grid grid-cols-2 gap-4">
             <div className="grid grid-cols-1">

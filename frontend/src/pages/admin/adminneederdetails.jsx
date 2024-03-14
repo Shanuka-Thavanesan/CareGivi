@@ -2,6 +2,7 @@ import React,{useState,useEffect, useContext} from "react";
 import { authContext } from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 
 function AdminNeeder ()  {
@@ -44,6 +45,9 @@ function AdminNeeder ()  {
       }
       
      console.log(needer);
+
+     const navigate = useNavigate()
+
      const handlestatusChange = (e) => {
       setstatus(e.target.value);
     };
@@ -84,6 +88,7 @@ function AdminNeeder ()  {
         
         if (response.status === 200) {
           console.log('Upload successful!');
+          navigate("/Users")
           // You may perform additional actions here upon successful update
         } else {
           console.log('Upload failed. Response:', response);
