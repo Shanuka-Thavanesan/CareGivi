@@ -40,9 +40,9 @@ function Services ()  {
           {/* <h2 className='text-[26px] leading-9 font-[700] text-primaryColor '>{service._id}</h2> */}
         <h2 className='text-[26px] leading-9 font-[700] text-primaryColor '>{service.title}</h2>
      
-        <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Need- </b>  {service.need}</p>
-        <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Type- </b>  {service.type}</p>
-        <p className='text-[16px] leading-7 font-[400] mt-4 '><b> Benifit-</b>{service.benifit}</p>
+        <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Needs of Elderly- </b>  {service.need}</p>
+        <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Caretaker Type- </b>  {service.type}</p>
+        <p className='text-[16px] leading-7 font-[400] mt-4 '><b> Benifit of the service-</b>{service.benifit}</p>
         
         <button className='btn text-[16px] leading-7 font-[400] mt-2 mb-2 px-2 py-1    '><b>Service per day- </b>  {service.servicePerDay}</button>
         
@@ -53,7 +53,7 @@ function Services ()  {
         </div>  
         </div>
         <div class="flex justify-center">
-        <Link to='/findcaretaker'><button className='btn hover:bg-peach hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl'>Need of Caretaker</button></Link>
+        <Link to='/findcaretaker'><button className='btn hover:bg-yellowGreen hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl'>Need of Caretaker</button></Link>
         </div>
     </section> 
 };

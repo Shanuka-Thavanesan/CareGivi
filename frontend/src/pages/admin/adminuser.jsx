@@ -18,8 +18,8 @@ function Users() {
   };
   return (
 
-    <div className="user11 mx-auto w-3/4 mt-10">
-      <table className="min-w-full divide-y divide--200">
+    <div className="user11 mx-auto w-3/4 mt-20 mb-20 py-20 ">
+      <table className="min-w-full divide-y divide--200 ">
         <thead className="text-center">
           <tr>
             <th scope="col" className="py-3 text-xs font-medium text-700  uppercase">

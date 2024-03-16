@@ -45,14 +45,7 @@ const AdminNavLinks = [
         path: '/Taker',
         display: "Caretakers"
     },
-    // {
-    //     path: '/contact',
-    //     display: "Contact"
-    // },
-    // {
-    //     path: '/contact',
-    //     display: "Payment"
-    // }
+   
 ]
 
 const Header = () => {

@@ -2,7 +2,8 @@ import React from 'react';
 // import About from '../componets/About/About';
 import CareGivilogo from '../assets/images/CareGivilogo.png';
 import CareGiviLOGO from "../assets/images/heroIMG.png"
-import caretaker2 from '../assets/images/caretaker2.png';
+import caretaker2 from '../assets/images/mission.png';
+import faq from "../assets/images/caretaker2.png";
 import { Link } from 'react-router-dom';
 import { BsArrowRight, } from 'react-icons/bs';
 import ServiceList from '../componets/Services/ServicesList';
@@ -136,18 +137,18 @@ const Home = () => {
 
         {/* ============================= About Us ========================== */}
         <section className='bg- py-6  '>
-            <div className="container py-20 mt-5 " >
-                <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row ">
+            <div className="container py-20 mt-5  " >
+                <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row px-10 ">
 
                     {/*================== about image =================== */}
-                    <div className="relative lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1 rounded-tr-full    bg-peach ">
+                    <div className="relative lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1 rounded-tr-full rounded-br-full   bg-peach ">
                         <img src={caretaker2} className='filter drop-shadow-md md:drop-shadow-xl px-6  ' alt="" />
                     </div>
 
 
 
                     {/* ===================== about content ================== */}
-                    <div className="w-full py-2 lg:w-1/2 xl:w-[670px] mt-2  mb-2 px-6 order-1 lg:order-2 mt-10   text-center justify-between">
+                    <div className="w-full py-2 lg:w-1/2 xl:w-[670px]   mb-2 px-6 order-1 lg:order-2 mt-10   text-center justify-between">
                         <h2 className='heading text-primaryColor '>OUR MISSION</h2>
                         <br />
                         <div className=' text-justify '>
@@ -254,7 +255,7 @@ const Home = () => {
                         <FaqList />
                     </div>
                     <div className='mt-12 ml-6 hidden md:block py-12 rounded-tl-full rounded-bl-full  bg-peach h-25%'>
-                        <img src={caretaker2} className='filter drop-shadow-md md:drop-shadow-xl ' alt="" />
+                        <img src={faq} className='filter drop-shadow-md md:drop-shadow-xl ' alt="" />
                     </div>
 
 
