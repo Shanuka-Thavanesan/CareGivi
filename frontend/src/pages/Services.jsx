@@ -44,7 +44,7 @@ function Services ()  {
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b>Caretaker Type- </b>  {service.type}</p>
         <p className='text-[16px] leading-7 font-[400] mt-4 '><b> Benifit of the service-</b>{service.benifit}</p>
         
-        <button className='btn text-[16px] leading-7 font-[400] mt-2 mb-2 px-2 py-1    '><b>Service per day- </b>  {service.servicePerDay}</button>
+        <button className='cursor-not-allowed btn text-[16px] leading-7 font-[400] mt-2 mb-2 px-2 py-1    '><b>Service per day- </b>  {service.servicePerDay}</button>
         
         </div> 
  ))}

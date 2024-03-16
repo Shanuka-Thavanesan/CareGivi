@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 const generateToken = (user) => {
+    //object containing the payload of the token, which typically includes data of user's ID and role
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, {
       expiresIn: '30d',
     });
@@ -13,10 +14,12 @@ const generateToken = (user) => {
 
 
 
+// function handles the registration of users
 export const register =async(req,res)=>{
 
+    // extract these data from req.body
+    // sent from a client-side form when a user register.
     const{email,password,name,role,photo,gender}= req.body
-
     
     try {
         let user;
@@ -33,10 +36,14 @@ export const register =async(req,res)=>{
             return res.status(400).json({message:"User already exist"})
         }
 
-        // hash password
+        // password-encrypt-bcrypt
+        // bcrypt-library
+        // hash password for security
+        // no.of rounds to generate salt=10
         const salt=await bcrypt.genSalt(10)
         const hashPassword=await bcrypt.hash(password,salt)
 
+        // creating the new user
         if(role === 'careneeder'){
             user = new User ({
                 name,
@@ -69,6 +76,7 @@ export const register =async(req,res)=>{
 
 export const login =async(req,res)=>{
 
+    // extracting the email and password from req.body
     const {email,password}=req.body
 
     try {
@@ -106,13 +114,15 @@ export const login =async(req,res)=>{
 
         // add cookie to browser
         res.cookie('token', token, {
+            // annot be accessed by client-side JavaScript
           httpOnly: true,
           maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
           sameSite: 'None',
           secure: true, // secure cookie only in production
         });
     
-        const { password, role, appoinment, ...rest } = user._doc;
+        // extract the properties from user object(user._doc)
+        const { password, role, photo, appoinment, ...rest } = user._doc;
         res.status(200).json({
           status: true,
           message: 'Succesfully login',

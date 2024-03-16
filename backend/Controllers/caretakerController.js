@@ -53,7 +53,8 @@ export const getAllCaretaker = asyncHandler(async (req, res) => {
     const caretaker = await Caretaker.find({});
     res.json(caretaker);
 });
-// =======================only shoing the approved caretakers=================
+
+// =======================only showing the approved caretakers=================
 // export const getAllCaretaker= async(req,res)=>{
 //     try {
 //         const {query}=req.query

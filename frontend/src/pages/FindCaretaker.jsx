@@ -135,7 +135,7 @@ function calculateTotalPrice( totalDays) {
                   className="text-sm font-medium text-primaryColor"
                 >Name:</label>
                 <input type="text" id="name" value={name} onChange={(e) => handlenameChange(e)}
-                  className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+                  className="block w-full px-3 py-2 caret-peach border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
                   required />
               </div>
               <div className="grid grid-cols-1">
