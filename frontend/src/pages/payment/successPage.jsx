@@ -6,10 +6,13 @@ const CheckoutSuccess = () => {
 
   return (
     <Container>
-               <div className="w-full max-w-xl mx-auto mr-2 mt-12  border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
+               <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12 ">
       <h2>Checkout Successful</h2>
+      <br />
       <p>Your order might take some time to process.</p>
+      <br />
       <p>Check your order status at your profile after about 10mins.</p>
+      <br />
       <p>
         Incase of any inqueries contact the support at{" "}
         <strong>support to CareGivi</strong>

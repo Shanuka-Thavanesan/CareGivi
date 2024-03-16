@@ -129,7 +129,7 @@ const Header = () => {
                                         }`}>
                                         <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[35px]
                      flex items-center justify-ceneter rounded-[50px] hover:bg-yellowGreen hover:text-primaryColor 
-                     filter drop-shadow-md md:drop-shadow-xl'>
+                     filter drop-shadow-md md:drop-shadow-xl transition '>
                                             {user.name}
                                         </button>
 

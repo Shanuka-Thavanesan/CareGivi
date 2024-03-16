@@ -14,7 +14,7 @@ const ServiceCard =({item,index})=>{
 
 
         <div className='flex items-center justify-between mt-[30px]'>
-        <Link to='/services' className='w-[35px] h-[30px] rounded-full bg-peach mt-[30px]
+        <Link to='/services' className='w-[35px] h-[30px] rounded-full bg-peach 
                      mt-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
                         <BsArrowRight className='group-hover:text-yellowGreen w-6 h-6 items-center justify-center' />
                     </Link>

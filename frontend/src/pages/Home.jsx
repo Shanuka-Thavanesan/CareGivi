@@ -35,7 +35,7 @@ const Home = () => {
                                 your doctor and case manager to provide the personalized circle of care that meets your needs.
                             </p>
                             <br />
-                            <Link to='/Services'><button className='btn hover:bg-yellowGreen hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl'>Services of CareGivi</button></Link>
+                            <Link to='/Services'><button className='shadow-lg shadow-yellowGreen btn drop-shadow-2xl hover:bg-yellowGreen hover:text-primaryColor filter  md:drop-shadow-xl'>Services of CareGivi</button></Link>
                         </div>
 
                         {/* ================ hero content =============== */}
@@ -56,7 +56,7 @@ const Home = () => {
 
                     <div className='flex gap-[30px] mb-5 justify-end py-12'>
                         <div>
-                        <img className='py-12 mt-20 mb-20  w-full h-full' src={CareGiviLOGO} alt="" /> 
+                        <img className='-translate-y-12  drop-shadow-2xl py-12 mt-20 mb-20  w-full h-full' src={CareGiviLOGO} alt="" /> 
                         </div>
                     </div>
                 </div>
@@ -142,13 +142,13 @@ const Home = () => {
 
                     {/*================== about image =================== */}
                     <div className="relative lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1 rounded-tr-full rounded-br-full   bg-peach ">
-                        <img src={caretaker2} className='filter drop-shadow-md md:drop-shadow-xl px-6  ' alt="" />
+                        <img src={caretaker2} className='drop-shadow-2xl filter  md:drop-shadow-xl px-6  ' alt="" />
                     </div>
 
 
 
                     {/* ===================== about content ================== */}
-                    <div className="w-full py-2 lg:w-1/2 xl:w-[670px]   mb-2 px-6 order-1 lg:order-2 mt-10   text-center justify-between">
+                    <div className="text-wrap w-full py-2 lg:w-1/2 xl:w-[670px]   mb-2 px-6 order-1 lg:order-2 mt-10   text-center justify-between">
                         <h2 className='heading text-primaryColor '>OUR MISSION</h2>
                         <br />
                         <div className=' text-justify '>
@@ -255,7 +255,7 @@ const Home = () => {
                         <FaqList />
                     </div>
                     <div className='mt-12 ml-6 hidden md:block py-12 rounded-tl-full rounded-bl-full  bg-peach h-25%'>
-                        <img src={faq} className='filter drop-shadow-md md:drop-shadow-xl ' alt="" />
+                        <img src={faq} className='translate-y-10 filter drop-shadow-md md:drop-shadow-xl ' alt="" />
                     </div>
 
 
