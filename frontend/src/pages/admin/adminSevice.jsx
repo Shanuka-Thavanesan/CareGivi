@@ -12,7 +12,7 @@ const ServiceForm = () => {
     const navigate = useNavigate()
    
 
-    const { user, role, token } = useContext(authContext)
+    const { token } = useContext(authContext)
 
 //   const navigate = useNavigate()
 
@@ -57,7 +57,7 @@ const handletitleChange = (e) => {
 
   return (
     <section className="mb-12 ">
-      <div className="w-full max-w-xl mx-auto mt-12 border border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
+      <div className="w-full max-w-xl mx-auto mt-12  border-yellowGreen border-4 rounded-md px-6 py-6 filter drop-shadow-md md:drop-shadow-xl ">
         <form onSubmit={(e) => uploadHandler(e)}>
           {/* <div className="ventor-form"> */}
           <h2 className="text-2xl font-bold mb-2 text-primaryColor filter drop-shadow-md md:drop-shadow-xl text-center">Service Details </h2>
@@ -67,7 +67,7 @@ const handletitleChange = (e) => {
                   className="text-sm font-medium text-primaryColor"
                 >Title of the Service:</label>
                 <input type="text" id="title" value={title} onChange={(e) => handletitleChange(e)}
-                  className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+                  className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
                   required />
               </div>
               <div className="grid grid-cols-1 py-2">
@@ -75,7 +75,7 @@ const handletitleChange = (e) => {
                   className="text-sm font-medium text-primaryColor"
                 >Need of the service:</label>
                 <input type="text" id="need" value={need} onChange={(e) => handleneedChange(e)}
-                  className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
+                  className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500"
                   required />
               </div>
            
@@ -84,14 +84,14 @@ const handletitleChange = (e) => {
                   className="text-sm font-medium text-primaryColor"
                 >Type of the service:</label>
                 <input type="text" id="type" value={type} onChange={(e) => handletypeChange(e)} required
-                  className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
+                  className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
               <div className="grid grid-cols-1 py-2">
                 <label htmlFor="benifit"
                   className="text-sm font-medium text-primaryColor"
                 >Benifit of the service:</label>
                 <input type="text" id="benifit" value={benifit} onChange={(e) => handlebenifitChange(e)} required
-                  className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
+                  className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
         
             <div className="grid grid-cols-1py-2 py-2">
@@ -99,7 +99,7 @@ const handletitleChange = (e) => {
                   className="text-sm font-medium text-primaryColor"
                 >Amount for service per day:</label>
                 <input type="string" id="servicePerDay" value={servicePerDay} onChange={(e) => handleservicePerDayChange(e)} required
-                  className="block w-full px-3 py-2 border border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
+                  className="block w-full px-3 py-2  border-yellowGreen border-2 rounded shadow-sm focus:ring-1 focus:ring-peach-500 focus:border-peach-500" />
               </div>
            
           </div>

@@ -49,12 +49,18 @@ const AdminNavLinks = [
 ]
 
 const Header = () => {
+    // (headerRef and menuRef) are initialized using the useRef hook to access the DOM elements.
     const headerRef = useRef(null);
     const menuRef = useRef(null);
+    // values (user, role, and token) are destructured.
     const { user, role, token } = useContext(authContext)
 
     const handleStickyHeader = () => {
+
+        //  event listener to the window object for the 'scroll' event
+        // run whenever the user scrolls the page.
         window.addEventListener('scroll', () => {
+            // scroll position is greater than 80 pixels, it adds the CSS class 'sticky_header' 
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
                 headerRef.current.classList.add('sticky_header')
             } else {
@@ -63,6 +69,8 @@ const Header = () => {
         });
     };
 
+
+    //  handle the sticky behavior 
     useEffect(() => {
         handleStickyHeader()
 

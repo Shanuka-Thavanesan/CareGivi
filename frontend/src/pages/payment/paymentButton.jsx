@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { authContext } from "../../context/AuthContext"; 
 
 
-
-const PayButton = ({ totalAmount }) => {
+//  when we are using this isPaid in needer form we have put the id in ({})
+const PayButton = ({ totalAmount , id}) => {
   const { user, role, token } = useContext(authContext)
   
   const handleCheckout = async () => {

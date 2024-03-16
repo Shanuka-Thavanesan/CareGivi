@@ -6,13 +6,14 @@ const stripe = stripePackage(process.env.STRIPE_SECRET_KEY);
 
 const makePayment = async (req, res) => {
   try {
-    const { totalAmount,user } = req.body; // Extract totalAmount directly
+    const { totalAmount,user, id } = req.body; // Extract totalAmount directly
 
     // Create a customer in Stripe
     const customer = await stripe.customers.create({
       metadata: {
         order: JSON.stringify(totalAmount),
-        user:req.body.user._id
+        user:req.body.user._id,
+        // neederId:req.body.id
       },
     });
 

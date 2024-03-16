@@ -45,7 +45,9 @@ app.post('/webhook', express.raw({type: 'application/json'}), (request, response
             try {
               const userId = customer.metadata.user;
               console.log(userId);
+              // const neederId = customer.metadata.id;
               const user = await User.findOne({ _id: userId });
+            
               if (user) {
                 user.isPaid = true;
                 const updatedUser = await user.save();

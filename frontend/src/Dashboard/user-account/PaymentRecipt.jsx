@@ -61,6 +61,7 @@ function PaymentReceipt() {
       <div className="btn-container" style={{ display: 'flex', justifyContent: 'center' }}>
   <div className="btn hover:bg-yellowGreen hover:text-primaryColor filter drop-shadow-md md:drop-shadow-xl" style={{ width: '150px' }}>
     <PayButton totalAmount={needer.price}/>
+    {/* <PayButton totalAmount={needer.price} id={needer._id}/> */}
   </div>
   
 </div>

@@ -11,13 +11,17 @@ export const authenticate = async (req, res, next) => {
         return res.status(401).json({ success: false, message: 'No token, authorization denied' });
     }
     try {
+
         // extracts the token from the authorization header
         // split the header string by space
         // retrieves the token from the second part.
+        // 0= Bearer 1= token
         const token = authToken.split(" ")[1];
+        
         // Verify token
         // decodes and verifies the token's authenticity using the provided secret key 
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        
         // If the token is successfully verified
         // Attach decoded user ID and role to request object
         // This allows subsequent middleware or route handlers to access the user ID and role.
